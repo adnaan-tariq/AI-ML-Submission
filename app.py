@@ -3,11 +3,9 @@ import streamlit as st
 import whisper
 from gtts import gTTS
 import io
-from openai import OpenAI  # Import OpenAI for AI/ML API calls
-import imageio
-imageio.plugins.ffmpeg.download()  # Ensure FFmpeg is downloaded and used by Pydub
-
+from openai import OpenAI
 from pydub import AudioSegment
+import imageio_ffmpeg  # Import the updated ffmpeg module
 
 # Set the base URL and API key for AI/ML API
 base_url = "https://api.aimlapi.com/v1"
@@ -23,7 +21,7 @@ model = whisper.load_model("base")
 def call_aiml_api(user_prompt, system_prompt="You are a helpful assistant."):
     try:
         completion = api.chat.completions.create(
-            model="mistralai/Mistral-7B-Instruct-v0.2",  # Specify the model from AI/ML
+            model="mistralai/Mistral-7B-Instruct-v0.2",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt},
@@ -31,8 +29,6 @@ def call_aiml_api(user_prompt, system_prompt="You are a helpful assistant."):
             temperature=0.7,
             max_tokens=256,
         )
-
-        # Return the response from the AI model
         return completion.choices[0].message.content.strip()
 
     except Exception as e:
@@ -59,11 +55,9 @@ def process_audio(file):
         tts.write_to_fp(response_audio_io)  # Save the audio to BytesIO object
         response_audio_io.seek(0)
 
-        # Return the response text and the response audio bytes
         return response_message, response_audio_io
 
     except Exception as e:
-        # Handle any errors
         return f"An error occurred: {e}", None
 
 # Streamlit App Layout
@@ -74,13 +68,10 @@ st.write("Developed by [Adnan Tariq](https://www.linkedin.com/in/adnaantariq/) w
 uploaded_file = st.file_uploader("Upload an audio file", type=["wav", "mp3", "ogg"])
 
 if uploaded_file is not None:
-    # Process the uploaded audio file
     with st.spinner('Processing...'):
         response_text, response_audio_io = process_audio(uploaded_file)
 
-    # Display the response text
     st.write(f"**Chatbot Response:** {response_text}")
 
-    # Play the response audio
     if response_audio_io:
         st.audio(response_audio_io, format="audio/mp3")

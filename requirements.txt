@@ -1,6 +1,6 @@
-imageio[ffmpeg]
 streamlit
 whisper
 openai
 gtts
 pydub
+imageio-ffmpeg
