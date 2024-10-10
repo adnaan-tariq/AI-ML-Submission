@@ -4,6 +4,9 @@ import whisper
 from gtts import gTTS
 import io
 from openai import OpenAI  # Import OpenAI for AI/ML API calls
+import imageio
+imageio.plugins.ffmpeg.download()  # Ensure FFmpeg is downloaded and used by Pydub
+
 from pydub import AudioSegment
 
 # Set the base URL and API key for AI/ML API
