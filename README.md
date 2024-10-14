@@ -1,4 +1,4 @@
-# AI-ML-Submission
+# Reasoning with o1 lablab.ai Hackathon Submission
 
 ## Table of Contents
 
@@ -10,10 +10,10 @@
 
 ## Introduction
 
-This repository includes projects and assignments related to AI and Machine Learning, showcasing different algorithms, models, and techniques. Each project is designed to solve a specific problem or demonstrate a particular concept in AI/ML.
+This repository includes projects and assignments related to the submission of Hackathons, showcasing different algorithms, models, and techniques.
 
 ## Overview
-This repository contains my submission for the AI/ML hackathon organized by [lablab.ai](https://lablab.ai). The project aims to demonstrate advanced machine learning techniques and innovative solutions to real-world problems. The primary language used in this repository is Python.
+This repository contains my submission for the AI/ML hackathon organized by [lablab.ai](https://lablab.ai). The project aims to demonstrate advanced machine-learning techniques and innovative solutions to real-world problems. The primary language used in this repository is Python.
 
 ## Installation
 
@@ -38,7 +38,7 @@ To set up the environment and install the required dependencies, follow these st
 
 ## Contributing
 
-Contributions are welcome! If you have any ideas or improvements, feel free to open an issue or create a pull request.
+Contributions are welcome! Feel free to open an issue or create a pull request if you have any ideas or improvements.
 
 1. Fork the repository
 2. Create a new branch (`git checkout -b feature-branch`)
